@@ -1,0 +1,31 @@
+---
+title: "Assignment"
+author: "Your Name"
+date: today
+format: rrassignment-pdf
+---
+
+# Overview
+
+This is some regular text - needed in order to see if my font options are working.
+
+```{r}
+head(mtcars, n = 3)
+```
+
+
+```{r}
+library(ggplot2)
+ggplot(mtcars, aes(wt, mpg)) +
+  geom_point()
+```
+
+```{r}
+library(dplyr)
+```
+
+```{r}
+x <- 2 +
+```
+
+> This is a blockquote.
