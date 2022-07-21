@@ -27,7 +27,8 @@ To use any of these, assign to `format` in the Quarto YAML header. For example,
 ---
 title: "Worksheet"
 course: "Course Name"
-author: "Ryan Raaum"
+author: "Author"
+date: "Semester"
 output: rrworksheet-html
 ---
 ```
