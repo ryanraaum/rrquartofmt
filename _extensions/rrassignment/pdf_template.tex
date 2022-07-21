@@ -308,20 +308,30 @@ $if(numbersections)$
 $else$
 \setcounter{secnumdepth}{-\maxdimen} % remove section numbering
 $endif$
-$if(beamer)$
-$else$
-$if(block-headings)$
-% Make \paragraph and \subparagraph free-standing
-\ifx\paragraph\undefined\else
-  \let\oldparagraph\paragraph
-  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
-\fi
-\ifx\subparagraph\undefined\else
-  \let\oldsubparagraph\subparagraph
-  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
-\fi
-$endif$
-$endif$
+
+%
+% Modification - commenting out block-headings because incompatible with titlesec
+%
+
+% $if(beamer)$
+% $else$
+% $if(block-headings)$
+% % Make \paragraph and \subparagraph free-standing
+% \ifx\paragraph\undefined\else
+%   \let\oldparagraph\paragraph
+%   \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+% \fi
+% \ifx\subparagraph\undefined\else
+%   \let\oldsubparagraph\subparagraph
+%   \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+% \fi
+% $endif$
+% $endif$
+
+% 
+% End commenting out
+%
+
 $if(pagestyle)$
 \pagestyle{$pagestyle$}
 $endif$
@@ -447,20 +457,6 @@ $endif$
 \posttitle{\par\end{center}}
 \preauthor{\begin{center} \large \begin{tabular}[t]{c}}
 
-$if(course)$
-$if(beamer)$
-$else$
-\usepackage{etoolbox}
-\makeatletter
-\providecommand{\course}[1]{% add subtitle to \maketitle
-  \apptocmd{\@title}{\par {\large #1}}{}{}
-}
-\makeatother
-$endif$
-\course{$course$}
-$endif$
-
-
 % include logo at the top of first page
 $if(rrlogo)$
 \usepackage{graphicx}
@@ -481,12 +477,26 @@ $if(rrworksheet)$
 \setlength{\headheight}{14pt}
 $endif$
 
-% % style the headings
-% \usepackage{titlesec}
-% \titlespacing\section{0pt}{16pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
-% \titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
-% \titlespacing\subsubsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
-% 
+% replace subtitle with course
+$if(course)$
+$if(beamer)$
+$else$
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+$endif$
+\subtitle{$course$}
+$endif$
+
+% style the headings
+\usepackage{titlesec}
+\titlespacing\section{0pt}{16pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsubsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+
 % create and style boxes for code, messages, results, and blockquotes
 \usepackage[many]{tcolorbox}
 
