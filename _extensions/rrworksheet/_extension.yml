@@ -1,0 +1,25 @@
+title: Quantitative Methods Assignment Format
+author: Ryan Raaum
+version: 1.0.0
+contributes:
+  formats:
+    pdf:
+       highlight-style: pygments
+       fig-width: 6
+       fig-height: 3.7
+       df-print: tibble
+       template: pdf_template.tex
+       geometry: margin=1in
+       knitr:
+        opts_chunk: 
+         class-output: bg-success
+         class-warning: bg-warning
+         class-error: bg-danger
+         class-message: bg-info
+       error: true
+       filters:
+        - replace_quotes.lua
+        - wrap_verbatim.lua
+       rrlogo: single-crane-logo-blackcoral.png
+       rrworksheet: true
+       
