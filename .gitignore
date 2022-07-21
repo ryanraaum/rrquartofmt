@@ -43,3 +43,6 @@ vignettes/*.pdf
 
 # generated pdf's from example template
 *.pdf
+
+# log files
+*.log
