@@ -1,9 +1,9 @@
 ---
-title: "Assignment"
+title: "Worksheet"
 course: "Course Name"
-author: "Student Name"
-date: today
-format: rrassignment-pdf
+author: "Author"
+date: "Semester"
+format: rrworksheet-pdf
 ---
 
 # Overview
